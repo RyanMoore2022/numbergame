@@ -2,45 +2,40 @@ import java.util.Scanner;
 
 public class numberGame {
     public static void main(String[] args) {
-
+        boolean guess;
+        String answer;
         int pickNumber;
         int guessedNumber;
-        String guess;
 
         System.out.println("Hello, welcome to the number guessing game. You must find the correct number between 1 and 100.");
-        pickNumber = (int) (Math.random() * 100) + 1;
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println(pickNumber);
 
-        do {
-                guessedNumber = keyboard.nextInt();
+            guess = false;
+            pickNumber = (int) (Math.random() * 100) + 1;
+            System.out.println(pickNumber);
+            Scanner keyboard = new Scanner(System.in);
+            do {
+                    //logic
+                    guessedNumber = keyboard.nextInt();
 
-            if (guessedNumber < pickNumber) {
-                System.out.println("Too low, guess again.");
-                guess = "wrong";
-
-                }
-
-                else if (guessedNumber > pickNumber) {
-                System.out.println("Too high, guess again.");
-                guess = "wrong";
-
-
-            } else {
-                System.out.println("congradulations");
-                guess = "right";
-
-            }
-            String answer;
-            System.out.println("Do you want to play again?");
-            answer = keyboard.nextLine();
-                do {
-                    if (answer.equalsIgnoreCase("yes")) {
-                        answer = "yes";
+                    if (guessedNumber < pickNumber) {
+                        System.out.println("Too low, guess again.");
+                    } else if (guessedNumber > pickNumber) {
+                        System.out.println("Too high, guess again.");
                     } else {
-                        answer.equals("no");
+                        System.out.println("congratulations!");
+                        guess = true;
                     }
-                }while (guess.equals("wrong"));
-        }while (answer != "yes");
+                } while (!guess);
+
+                //game loop
+               do {
+                   System.out.println("Do you want to play again?");
+                   answer = keyboard.next();
+                   if (answer.equalsIgnoreCase("yes")){
+                       answer = "yes";
+                   }
+                   else(answer = "no")
+               }while();
+
+        }
     }
-}
